@@ -342,6 +342,11 @@ if(mobileDarkToggle){
 }
 
 function goHome(){
+    // Ensure video is paused when returning to home
+  if (schedVideo && !schedVideo.paused) {
+    schedVideo.pause();
+    playBtn.textContent = 'Play';
+  }
   schedSection.classList.add('fading-out');
   setTimeout(()=>{
     schedSection.classList.add('hidden');
